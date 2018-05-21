@@ -1,0 +1,12 @@
+# The GoGoGo tool is used to auto generate the page module through the template files. 
+# Base on Clean Architecture.
+## For example, a welcome page conclude follows:
+### 1. WelcomeActivity(or WelcomeFragment)
+### 2. WelcomePageAction
+### 3. WelcomePageIntent
+### 4. WelcomePageResult
+### 5. WelcomePageViewState
+### 6. WelcomeViewModel
+### 7. WelcomeProcessorHolder
+
+#Run it at Unit Test [GoGoGoTest]

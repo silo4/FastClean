@@ -1,0 +1,122 @@
+
+ext {
+    //Android
+    androidVersionCode = 1
+    androidVersionName = "alpha-1.0"
+    kotlinVersion = "1.2.41"
+    dokkaVersion = "0.9.15"
+    gradleVersion = "3.1.2"
+    androidApplicationId = 'com.zhonglongzhou.fastclean'
+    testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+    testApplicationId = 'com.zhonglongzhou.fastclean.test'
+
+    androidBuildToolsVersion = "27.0.3"
+    androidMinSdkVersion = 18
+    androidTargetSdkVersion = 26
+    androidCompileSdkVersion = 26
+    appCompatV7Version = "27.0.1"
+
+    sourceCompatibilityVersion = "1.8"
+    targetCompatibilityVersion = "1.8"
+
+    //Testing
+    jUnitVersion = '4.12'
+    assertJVersion = '1.7.1'
+    testRunnerVersion = '1.0.1'
+    testEspressoVersion = '3.0.1'
+
+    //Libraries
+    multidexVersion = "1.0.1"
+    ankoVersion = '0.10.4'
+    ktxVersion = '0.1'
+    glideVersion = '4.6.1'
+    rxDownloadVersion = '1.2.2'
+    constraintLayoutVersion = '1.0.2'
+    rxKotlinVersion = '2.0.2'
+    rxAndroidVersion = '2.0.1'
+    rxBindingVersion = '2.0.0'
+    jodatimeVersion = '2.9.9'
+    fuelVersion= '1.11.0'
+    daggerVersion = '2.16'
+    archComponentsVersion = '1.1.0'
+
+    buildDependencies = [
+            gradle      : "com.android.tools.build:gradle:${gradleVersion}",
+            kotlinGradle: "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}",
+            dokkaGradle : "org.jetbrains.dokka:dokka-android-gradle-plugin:${dokkaVersion}",
+    ]
+
+    libraryDependencies = [
+            multidex     : "com.android.support:multidex:${multidexVersion}",
+            kotlinStdlib : "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}",
+            kotlinReflect: "org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}",
+            appCompatV7  : "com.android.support:appcompat-v7:${appCompatV7Version}",
+
+            /**
+             * https://github.com/Kotlin/anko/wiki/Anko-Layouts
+             */
+            ankoCommons  : "org.jetbrains.anko:anko-commons:${ankoVersion}",
+            ankoSdk      : "org.jetbrains.anko:anko-sdk25:${ankoVersion}",
+            ankoAppcompat: "org.jetbrains.anko:anko-appcompat-v7:${ankoVersion}",
+
+            /**
+             * https://github.com/android/android-ktx/
+             */
+            ktx          : "androidx.core:core-ktx:${ktxVersion}",
+
+            /**
+             * https://github.com/ssseasonnn/RxDownload
+             */
+            rxDownload   : "zlc.season:rxdownload3:${rxDownloadVersion}",
+
+            /**
+             * https://developer.android.com/training/constraint-layout/index.html
+             */
+            constraintLayout: "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
+
+            /**
+             * https://github.com/ReactiveX/RxKotlin
+             */
+            rxKotlin:         "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+
+            /**
+             * https://github.com/JodaOrg/joda-time
+             */
+            jodatime:         "joda-time:joda-time:${jodatimeVersion}",
+
+            /**
+             * https://github.com/kittinunf/Fuel
+             */
+            fuel:             "com.github.kittinunf.fuel:fuel-android:${fuelVersion}",
+
+            /**
+             * https://github.com/ReactiveX/RxAndroid
+             */
+            rxAndroid:        "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+
+            /**
+             * https://github.com/JakeWharton/RxBinding
+             */
+            rxBinding:        "com.jakewharton.rxbinding2:rxbinding:${rxBindingVersion}",
+
+            /**
+             * https://github.com/google/dagger
+             */
+            dagger:           "com.google.dagger:dagger:${daggerVersion}",
+            daggerCompiler:   "com.google.dagger:dagger-compiler:${daggerVersion}",
+
+            /**
+             * https://developer.android.com/topic/libraries/architecture/viewmodel
+             * https://developer.android.com/topic/libraries/architecture/adding-components
+             */
+            archComponentsVersion: "android.arch.lifecycle:extensions:${archComponentsVersion}",
+    ]
+
+    testDependencies = [
+            junit       : "junit:junit:${jUnitVersion}",
+            assertj     : "org.assertj:assertj-core:${assertJVersion}",
+            testRunner  : "com.android.support.test:runner:${testRunnerVersion}",
+            testEspresso: "com.android.support.test.espresso:espresso-core:${testEspressoVersion}",
+    ]
+
+}

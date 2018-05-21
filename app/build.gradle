@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+sourceCompatibility = rootProject.extensions.getByName("ext").getAt("sourceCompatibilityVersion")
+targetCompatibility = rootProject.extensions.getByName("ext").getAt("targetCompatibilityVersion")
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
+    buildToolsVersion globalConfiguration.getAt("androidBuildToolsVersion")
+
+    defaultConfig {
+        applicationId globalConfiguration.getAt("androidApplicationId")
+        minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
+        targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
+        versionCode globalConfiguration.getAt("androidVersionCode")
+        versionName globalConfiguration.getAt("androidVersionName")
+        testInstrumentationRunner globalConfiguration.getAt("testInstrumentationRunner")
+        multiDexEnabled true
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file(DEBUG_STORE_FILE)
+            storePassword DEBUG_STORE_PASSWORD
+            keyAlias DEBUG_KEY_ALIAS
+            keyPassword DEBUG_KEY_PASSWORD
+        }
+
+        release {
+            storeFile file(RELEASE_STORE_FILE)
+            storePassword RELEASE_STORE_PASSWORD
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PASSWORD
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    def libraryDependencies = rootProject.ext.libraryDependencies
+    def testDependencies = rootProject.ext.testDependencies
+
+    implementation       fileTree(dir: 'libs', include: ['*.jar'])
+    implementation       libraryDependencies.kotlinStdlib
+    implementation       libraryDependencies.kotlinReflect
+    implementation       libraryDependencies.appCompatV7
+    implementation       libraryDependencies.ankoCommons
+    implementation       libraryDependencies.ankoSdk
+    implementation       libraryDependencies.ankoAppcompat
+    implementation       libraryDependencies.ktx
+    implementation       libraryDependencies.rxDownload
+    implementation       libraryDependencies.constraintLayout
+    implementation       libraryDependencies.rxKotlin
+    implementation       libraryDependencies.jodatime
+    implementation       libraryDependencies.fuel
+    implementation       libraryDependencies.multidex
+    implementation       libraryDependencies.rxAndroid
+    implementation       libraryDependencies.rxBinding
+    implementation       libraryDependencies.dagger
+    annotationProcessor  libraryDependencies.daggerCompiler
+    implementation       libraryDependencies.archComponentsVersion
+
+    testImplementation          testDependencies.junit
+    androidTestImplementation   testDependencies.testRunner
+    androidTestImplementation   testDependencies.testEspresso
+
+
+}
